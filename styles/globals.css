@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @keyframes initModal {
   from {
     opacity: 0;
@@ -122,6 +118,81 @@ body{
   flex-direction: column;
   width: 100%;
   display: flex;
+}
+
+.root-cat{
+  grid-column: 1 / -1;
+  min-width: 0px;
+}
+
+.nav-cat{
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.ul-cat{
+  display: flex;
+  -webkit-box-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 0;
+  flex-flow: row wrap;
+}
+
+.a-cat{
+  max-width: fit-content;
+  min-width: 80px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  display: flex;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.circle-cat{
+  height: 60px;
+  width: 60px;
+  position: relative;
+}
+
+.image-cat{
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.span-cat{
+  text-align: center;
+  line-height: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: sans-serif;
+  width: 100%;
+}
+
+.span-div-cat{
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.il-cat{
+  display: block;
+  padding-top: 20px;
+}
+
+.sep-cat{
+  width: 95%;
+  border-bottom: solid 2px #e5e7eb;
+  padding-top: 60px;
+  margin: 0 auto;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

@@ -1,0 +1,92 @@
+[
+    {
+        "id": "1",
+        "name": "Offres",
+        "img": "img/deals.png"
+    },
+    {
+        "id": "2",
+        "name": "Courses",
+        "img": "img/uber_grocery.png"
+    },
+    {
+        "id": "3",
+        "name": "Epicerie",
+        "img": "img/convenience.png"
+    },
+    {
+        "id": "4",
+        "name": "Alcool",
+        "img": "img/alcohol.png"
+    },
+    {
+        "id": "5",
+        "name": "Commerces de bouche",
+        "img": "img/specialty_foods.jpg"
+    },
+    {
+        "id": "6",
+        "name": "Les mieux notés",
+        "img": "img/top_eats.png"
+    },
+    {
+        "id": "7",
+        "name": "Burgers",
+        "img": "img/burger.png"
+    },
+    {
+        "id": "8",
+        "name": "Fast food",
+        "img": "img/fastfood.png"
+    },
+    {
+        "id": "9",
+        "name": "Américain",
+        "img": "img/american.png"
+    },
+    {
+        "id": "10",
+        "name": "Japonaise",
+        "img": "img/japanese.png"
+    },
+    {
+        "id": "11",
+        "name": "Sushis",
+        "img": "img/sushi.png"
+    },
+    {
+        "id": "12",
+        "name": "Asiatique",
+        "img": "img/asian.png"
+    },
+    {
+        "id": "13",
+        "name": "Italienne",
+        "img": "img/italian.png"
+    },
+    {
+        "id": "14",
+        "name": "Pizzas",
+        "img": "img/pizza.png"
+    },
+    {
+        "id": "15",
+        "name": "Halal",
+        "img": "img/halal.png"
+    },
+    {
+        "id": "16",
+        "name": "Cuisine saine",
+        "img": "img/healthy.png"
+    },
+    {
+        "id": "17",
+        "name": "Poke (poisson cru)",
+        "img": "img/poke.png"
+    },
+    {
+        "id": "18",
+        "name": "Sandwichs",
+        "img": "img/sandwich.png"
+    }
+]
