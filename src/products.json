@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "name": "La Mie Caline - Compans",
+        "img": "img/products/1.jpeg",
+        "rate": "4.5",
+        "fav": "false",
+        "offer": "false"
+    },
+    {
+        "id": "2",
+        "name": "Sunside Café",
+        "img": "img/products/1.jpeg",
+        "rate": "4.5",
+        "fav": "false",
+        "offer": "false"
+    },
+    {
+        "id": "3",
+        "name": "Le St Cyp Traiteur",
+        "img": "img/products/1.jpeg",
+        "rate": "4.4",
+        "fav": "false",
+        "offer": "false"
+    },
+    {
+        "id": "4",
+        "name": "Le Break",
+        "img": "img/products/1.jpeg",
+        "rate": "4.2",
+        "fav": "false",
+        "offer": "false"
+    },
+    {
+        "id": "5",
+        "name": "La Mie Caline - Jeanne D'arc",
+        "img": "img/products/1.jpeg",
+        "rate": "4.6",
+        "fav": "false",
+        "offer": "false"
+    },
+    {
+        "id": "6",
+        "name": "Carrefour - Toulouse Remusat 1",
+        "img": "img/products/1.jpeg",
+        "rate": "3.4",
+        "fav": "false",
+        "offer": "false"
+    }
+]
