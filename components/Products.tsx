@@ -51,7 +51,7 @@ const Products: NextPage = () => {
                     {data.map((datum) => (
                         <li className="products-li">
                             <div className="products-pos">
-                            <FontAwesomeIcon className="product-fas" icon={faHeart}/>
+                                <a href={"/" + datum.id}><FontAwesomeIcon className="product-fas" icon={faHeart}/></a>
                                 <a className="products-a" href={"/" + datum.id}>
                                     {datum.offer?
                                         (<div className="product-offer-rub">

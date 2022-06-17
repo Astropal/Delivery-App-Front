@@ -329,6 +329,11 @@ body{
   color: #FFFF;
   right: 0;
   padding: 10px;
+  z-index: 5;
+}
+
+.product-fas:hover{
+  color: rgb(5, 163, 87);
 }
 
 .product-offer-rub{
