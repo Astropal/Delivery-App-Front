@@ -4,6 +4,9 @@ import styles from '../styles/Home.module.css'
 import Layout from "@components/Layout";
 import Food from "@svgs/Food.svg";
 import products from "../src/products.json";
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faHeart, faHeartCircleBolt, faCoffee,} from "@fortawesome/free-solid-svg-icons";
 
 interface IProducts {
     id: number;
@@ -41,16 +44,23 @@ const Products: NextPage = () => {
             </div>
         </div>
         <div className="main-right-side">
+        <h1>Offres du jour</h1>
             <div className="products-section">
                 <div className="products-box">
-                    
+                
                     {data.map((datum) => (
                         <li className="products-li">
                             <div className="products-pos">
+                            <FontAwesomeIcon className="product-fas" icon={faHeart}/>
                                 <a className="products-a" href={"/" + datum.id}>
+                                    {datum.offer?
+                                        (<div className="product-offer-rub">
+                                            <span className='product-offer'>1 acheté(s) = 1 offert(s)</span>
+                                        </div>):(<span></span>)
+                                    }
                                     <img className="products-img" src={datum.img}></img>
                                     <div className="products-info">
-                                        <h3 className="product-title">{datum.name}</h3>
+                                        <h3 className="product-title">{datum.name}</h3>  
                                         <span className="product-rate">{datum.rate}</span>
                                     </div>
                                 </a>

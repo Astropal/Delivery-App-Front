@@ -4,47 +4,95 @@
         "name": "La Mie Caline - Compans",
         "img": "img/products/1.jpeg",
         "rate": "4.5",
-        "fav": "false",
-        "offer": "false"
+        "fav": false,
+        "offer": true
     },
     {
         "id": "2",
         "name": "Sunside Café",
-        "img": "img/products/1.jpeg",
+        "img": "img/products/2.jpeg",
         "rate": "4.5",
-        "fav": "false",
-        "offer": "false"
+        "fav": false,
+        "offer": false
     },
     {
         "id": "3",
         "name": "Le St Cyp Traiteur",
-        "img": "img/products/1.jpeg",
+        "img": "img/products/3.jpeg",
         "rate": "4.4",
-        "fav": "false",
-        "offer": "false"
+        "fav": false,
+        "offer": false
     },
     {
         "id": "4",
         "name": "Le Break",
-        "img": "img/products/1.jpeg",
+        "img": "img/products/4.jpeg",
         "rate": "4.2",
-        "fav": "false",
-        "offer": "false"
+        "fav": false,
+        "offer": true
     },
     {
         "id": "5",
         "name": "La Mie Caline - Jeanne D'arc",
         "img": "img/products/1.jpeg",
         "rate": "4.6",
-        "fav": "false",
-        "offer": "false"
+        "fav": false,
+        "offer": false
     },
     {
         "id": "6",
         "name": "Carrefour - Toulouse Remusat 1",
-        "img": "img/products/1.jpeg",
+        "img": "img/products/6.jpeg",
         "rate": "3.4",
-        "fav": "false",
-        "offer": "false"
+        "fav": false,
+        "offer": false
+    },
+    {
+        "id": "7",
+        "name": "Sunside Café",
+        "img": "img/products/2.jpeg",
+        "rate": "4.5",
+        "fav": false,
+        "offer": true
+    },
+    {
+        "id": "8",
+        "name": "Le St Cyp Traiteur",
+        "img": "img/products/3.jpeg",
+        "rate": "4.4",
+        "fav": false,
+        "offer": false
+    },
+    {
+        "id": "9",
+        "name": "Le Break",
+        "img": "img/products/4.jpeg",
+        "rate": "4.2",
+        "fav": false,
+        "offer": false
+    },
+    {
+        "id": "10",
+        "name": "Carrefour - Toulouse Remusat 1",
+        "img": "img/products/6.jpeg",
+        "rate": "3.4",
+        "fav": false,
+        "offer": false
+    },
+    {
+        "id": "11",
+        "name": "Sunside Café",
+        "img": "img/products/2.jpeg",
+        "rate": "4.5",
+        "fav": false,
+        "offer": false
+    },
+    {
+        "id": "13",
+        "name": "Le St Cyp Traiteur",
+        "img": "img/products/3.jpeg",
+        "rate": "4.4",
+        "fav": false,
+        "offer": false
     }
 ]
