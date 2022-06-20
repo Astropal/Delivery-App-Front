@@ -96,7 +96,7 @@ body{
   position: absolute;
 }
 
-.navbar-sign{
+.navbar-sign_in{
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -106,6 +106,22 @@ body{
   padding-bottom: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  border-radius: 1.5rem;
+  cursor: pointer;
+  margin-right: 10%;
+}
+
+.navbar-sign_up{
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: black;
+  color: #FFFF;
   border-radius: 1.5rem;
   cursor: pointer;
 }

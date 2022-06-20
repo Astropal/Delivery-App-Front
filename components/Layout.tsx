@@ -30,7 +30,7 @@ const Layout: React.FC<ILayout> = ({
       <div className="navbar-side">
         
           { /* Menu */ }
-          
+
           <MenuSlide></MenuSlide>
          
           { /* Logo */ }
@@ -83,11 +83,17 @@ const Layout: React.FC<ILayout> = ({
           { /* Connexion */ }
           <div className="navbar-side">
               <div
-                className="navbar-sign"
+                className="navbar-sign_in"
               >
                 Connexion
               </div>
+              <div
+                className="navbar-sign_up"
+              >
+                Inscription
+              </div>
           </div>
+              
 
       </header>
       <div>{children}</div>
