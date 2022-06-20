@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React, { useRef } from "react";
 import MenuSlide from "@components/MenuSlide"
+import Link from 'next/link'
 
 
 interface ILayout {
@@ -82,16 +83,12 @@ const Layout: React.FC<ILayout> = ({
 
           { /* Connexion */ }
           <div className="navbar-side">
-              <div
-                className="navbar-sign_in"
-              >
-                Connexion
-              </div>
-              <div
-                className="navbar-sign_up"
-              >
-                Inscription
-              </div>
+              <Link href="/login">
+                <div className="navbar-sign_in">Connexion</div>
+              </Link>
+              <Link href="/register">
+              <div className="navbar-sign_up">Inscription</div>
+              </Link>
           </div>
               
 
