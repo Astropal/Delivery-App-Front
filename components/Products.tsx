@@ -6,7 +6,7 @@ import Food from "@svgs/Food.svg";
 import products from "../src/products.json";
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faHeart, faHeartCircleBolt, faCoffee,} from "@fortawesome/free-solid-svg-icons";
+import {faHeart, faTicketSimple, faCoffee,} from "@fortawesome/free-solid-svg-icons";
 
 interface IProducts {
     id: number;
@@ -15,6 +15,7 @@ interface IProducts {
     rate?: string;
     fav?: boolean;
     offer?: boolean;
+    delivery_time?: number;
   }
 
 const Products: NextPage = () => {
@@ -26,6 +27,8 @@ const Products: NextPage = () => {
     };
 
     const [data, setData] = useState<IProducts[]>([]);
+    const default_time = 15;
+    let delivery_fee = 0;
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -51,7 +54,7 @@ const Products: NextPage = () => {
                     {data.map((datum) => (
                         <li className="products-li">
                             <div className="products-pos">
-                                <a href={"/" + datum.id}><FontAwesomeIcon className="product-fas" icon={faHeart}/></a>
+                                <a href={"/" + datum.id}><FontAwesomeIcon className="product-fav" icon={faHeart}/></a>
                                 <a className="products-a" href={"/" + datum.id}>
                                     {datum.offer?
                                         (<div className="product-offer-rub">
@@ -62,6 +65,7 @@ const Products: NextPage = () => {
                                     <div className="products-info">
                                         <h3 className="product-title">{datum.name}</h3>  
                                         <span className="product-rate">{datum.rate}</span>
+                                        <span className="product-subtitle"><FontAwesomeIcon className="product-fas" icon={faTicketSimple}/> • Frais de livraison : {datum.delivery_time! >= 15? (delivery_fee = 1.49):(delivery_fee = 0.99) }€ • {datum.delivery_time}-{datum.delivery_time! + 10}mins</span>
                                     </div>
                                 </a>
                             </div>

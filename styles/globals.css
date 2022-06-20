@@ -313,23 +313,40 @@ body{
 
 .product-title{
   font-weight: normal;
+  margin-bottom: 0;
+}
+
+.product-subtitle{
+  line-height: 20px;
+  color: #545454;
+  font-weight: normal;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .product-rate{
   position: absolute;
-  top: 25%;
+  top: 24%;
   right: 0;
   background-color: #e5e7eb;
   border: solid 5px #e5e7eb;
   border-radius: 360px;
+  font-size: small;
 }
 
-.product-fas{
+.product-fav{
   position: absolute;
   color: #FFFF;
   right: 0;
   padding: 10px;
   z-index: 5;
+}
+
+.product-fas{
+  color: rgb(5, 163, 87);
+  height: 13px;
 }
 
 .product-fas:hover{
