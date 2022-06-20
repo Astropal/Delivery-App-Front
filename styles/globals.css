@@ -312,8 +312,13 @@ body{
 }
 
 .product-title{
+  display: inline-block;
   font-weight: normal;
   margin-bottom: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 90%;
 }
 
 .product-subtitle{
@@ -349,7 +354,7 @@ body{
   height: 13px;
 }
 
-.product-fas:hover{
+.product-fav:hover{
   color: rgb(5, 163, 87);
 }
 
