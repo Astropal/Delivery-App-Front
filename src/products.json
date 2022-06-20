@@ -104,7 +104,7 @@
         "img": "img/products/3.jpeg",
         "rate": "4.4",
         "fav": false,
-        "offer": false,
+        "offer": true,
         "delivery_time": 10
     }
 ]
