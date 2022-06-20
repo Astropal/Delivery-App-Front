@@ -1,5 +1,7 @@
 import Head from "next/head";
 import React, { useRef } from "react";
+import MenuSlide from "@components/MenuSlide"
+
 
 interface ILayout {
     children: React.ReactNode;
@@ -28,20 +30,8 @@ const Layout: React.FC<ILayout> = ({
       <div className="navbar-side">
         
           { /* Menu */ }
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="navbar-menu"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+          
+          <MenuSlide></MenuSlide>
          
           { /* Logo */ }
 
