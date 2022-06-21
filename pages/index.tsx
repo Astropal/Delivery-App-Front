@@ -11,7 +11,7 @@ const Home: NextPage = () => {
       <Category></Category>
         <div className="nocontent">
           <Food />
-          <br /><span className="font-semibold">Veuillez réessayer après vous être connecté.</span>
+          <br /><span className="font-semibold">Bientôt des offres ici..</span>
          </div>
       <Products></Products>
     </Layout>

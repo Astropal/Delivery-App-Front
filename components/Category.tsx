@@ -12,8 +12,6 @@ interface ICategory {
   }
 
 const Category: NextPage = () => {
-    console.log(ctg)
-
     const dataLoader = (): Promise<ICategory[]> => {
         const hmm: ICategory[] = ctg as ICategory[];
         return new Promise((res) => res(hmm));
@@ -37,7 +35,7 @@ const Category: NextPage = () => {
             <ul className="ul-cat">
                 
                 {data.map((datum) => (
-                    <li className="il-cat">
+                    <li key={datum.id} className="il-cat">
                         <a className="a-cat" href={"/" + datum.id}>
                             <div className="circle-cat">
                                 <img className="image-cat" src={datum.img}></img>
