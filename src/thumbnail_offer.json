@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "name": "1 plat offert",
+        "description": "Pour un plat acheté",
+        "img": "img/thumbnail/bigmardi.jpg",
+        "color": "",
+        "button": true
+    },
+    {
+        "id": "2",
+        "name": "",
+        "description": "",
+        "img": "img/thumbnail/selectionfood.png",
+        "color": "",
+        "button": false
+    },
+    {
+        "id": "3",
+        "name": "Frais de livraison offerts en illimité avec le pass Eats",
+        "description": "",
+        "img": "img/thumbnail/offer.png",
+        "color": "#ffc043",
+        "button": true
+    }
+]

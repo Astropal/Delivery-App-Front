@@ -1,10 +1,6 @@
 import type { NextPage } from 'next'
 import { useEffect, useState } from "react";
-import styles from '../styles/Home.module.css'
-import Layout from "@components/Layout";
-import Food from "@svgs/Food.svg";
 import products from "../src/products.json";
-import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart, faTicketSimple, faCoffee,} from "@fortawesome/free-solid-svg-icons";
 
