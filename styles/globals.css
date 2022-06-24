@@ -259,17 +259,6 @@ body{
   display: flex;
 }
 
-.products-menu-temp{
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  width: 318px;
-  height: 600px;
-  background-color: #e5e7eb;
-}
-
 .products-section{
   scroll-snap-type: x mandatory;
   display: -webkit-box;
@@ -462,6 +451,107 @@ body{
   height: 100%;
   width: 100%;
   border-radius: 10px;
+}
+
+.sidemenu-section{
+  margin-left: 10%;
+  margin-top: 4%;
+}
+
+.sidemenu-title{
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.sidemenu-text{
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  padding-top: 2.5%;
+}
+
+.sidemenu-dot{
+  font-size: 70px;
+  color: #FFF;
+  border: solid 2px #545454;
+  border-radius: 360px;
+  box-sizing: border-box;
+  box-shadow:0px 0px 0px 3px #545454 inset;
+  margin-right: 5px;
+}
+
+.sidemenu-dot:hover{
+  font-size: 70px;
+  color: #FFF;
+  border: solid 2px black;
+  border-radius: 360px;
+  box-sizing: border-box;
+  box-shadow:0px 0px 0px 3px black inset;
+  margin-right: 5px;
+}
+
+.sidemenu-inline-section{
+  display: flex;
+  margin-top: 15px;
+}
+
+.sidemenu-fas{
+  height: 20px;
+  padding-top: 2.5%;
+  margin-right: 10px;
+}
+
+.sidemenu-sub-section{
+  display: flex;
+  flex-flow: wrap;
+}
+
+.sidemenu-perprice{
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: #EEEEEE;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  margin-right: 4%;
+  margin-top: 4%;
+  text-align: center;
+  width: calc(5% + 20px);
+}
+
+.sidemenu-tag{
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: #EEEEEE;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  margin-right: 4%;
+  margin-top: 4%;
+  text-align: center;
+  width: fit-content;
+}
+
+.sidemenu-slider{
+  margin-top: 8%;
+  width: 80%;
+  color: #000000;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
