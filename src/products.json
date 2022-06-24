@@ -64,11 +64,11 @@
     },
     {
         "id": "8",
-        "name": "Le St Cyp Traiteur",
-        "img": "img/products/3.jpeg",
+        "name": "McDonald's",
+        "img": "img/products/7.jpeg",
         "rate": "4.4",
         "fav": false,
         "offer": false,
-        "delivery_time": 15
+        "delivery_time": 10
     }
 ]
