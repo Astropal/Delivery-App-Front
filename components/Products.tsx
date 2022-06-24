@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import products from "../src/products.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart, faTicketSimple} from "@fortawesome/free-solid-svg-icons";
-
 import Restaurants from "@components/DataLoader"
+import Sidemenu from "@components/Sidemenu"
 
 interface IProducts {
     id: number;
@@ -40,7 +40,7 @@ const Products: NextPage = () => {
     <div className="product-grid">
         <div className="main-left-side">
             <div className="products-menu">
-                <div className="products-menu-temp"></div>
+                <Sidemenu></Sidemenu>
             </div>
         </div>
         <div className="main-right-side">
