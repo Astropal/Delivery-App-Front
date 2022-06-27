@@ -53,7 +53,7 @@ const Products: NextPage = () => {
                             <li className="products-li">
                                 <div className="products-pos">
                                     <a href={"/" + datum.id}><FontAwesomeIcon className="product-fav" icon={faHeart}/></a>
-                                    <a className="products-a" href={"/" + datum.id}>
+                                    <a className="products-a" href={"/restaurants/" + datum.id}>
                                         {datum.offer?
                                             (<div className="product-offer-rub">
                                                 <span className='product-offer'>1 acheté(s) = 1 offert(s)</span>

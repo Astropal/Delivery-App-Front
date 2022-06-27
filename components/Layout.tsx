@@ -2,6 +2,7 @@ import Head from "next/head";
 import React, { useRef } from "react";
 import MenuSlide from "@components/MenuSlide"
 import Link from 'next/link'
+import { TabsListUnstyled } from "@mui/base";
 
 
 interface ILayout {
@@ -35,7 +36,7 @@ const Layout: React.FC<ILayout> = ({
           <MenuSlide></MenuSlide>
          
           { /* Logo */ }
-
+        <Link href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="40"
@@ -54,6 +55,7 @@ const Layout: React.FC<ILayout> = ({
               ></path>
             </g>
           </svg>
+        </Link>
         </div>
 
         { /* Recherche */ }
