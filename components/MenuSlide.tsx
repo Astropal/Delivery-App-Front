@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import React, { useRef } from "react";
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
+import Link from 'next/link';
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
@@ -29,11 +30,18 @@ const MenuSlide: NextPage = () => {
 
   const list = (anchor: Anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 300 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
+
+    <Link href="/register">
+    <div className="navbar-menu-sign_up">Inscription</div>
+    </Link>
+    <Link href="/login">
+      <div className="navbar-menu-sign_in">Connexion</div>
+    </Link>
       
     </Box>
   );

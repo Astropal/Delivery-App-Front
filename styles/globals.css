@@ -82,7 +82,7 @@ body{
   padding-right: 2.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-    --tw-bg-opacity: 1;
+  --tw-bg-opacity: 1;
   background-color: #e5e7eb;
   border-radius: 1.5rem;
   font-size: large;
@@ -124,6 +124,48 @@ body{
   color: #FFFF;
   border-radius: 1.5rem;
   cursor: pointer;
+}
+
+.navbar-menu-sign_in{
+  border-radius: 0px;
+  padding: 12px 16px;
+  font-size: 18px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 30px;
+  background: #EEEEEE;
+  font-weight: 500;
+  width: auto;
+  cursor: pointer;
+  -webkit-box-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 25px;
+  margin-bottom: 5px;
+  margin-top: 8px;
+}
+
+.navbar-menu-sign_up{
+  border-radius: 0px;
+  padding: 12px 16px;
+  font-size: 18px;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 30px;
+  font-weight: 500;
+  width: auto;
+  cursor: pointer;
+  -webkit-box-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 25px;
+  margin-bottom: 8px;
 }
 
 .nocontent{
