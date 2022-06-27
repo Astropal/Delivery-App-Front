@@ -40,7 +40,7 @@ const DataLoader = () => {
                 {data.map((datum) => (
                         <li key={datum._id} className="products-li">
                             <div className="products-pos">
-                                 <a className="products-a" href={"/" + datum._id}>
+                                 <a className="products-a" href={"/restaurants/" + datum._id}>
                                     <img className="products-img" src={datum.picture}></img>
                                     <div className="products-info">
                                         <h3 className="product-title">{datum.name}</h3>  
