@@ -42,7 +42,12 @@ const MenuSlide: NextPage = () => {
     <Link href="/login">
       <div className="navbar-menu-sign_in">Connexion</div>
     </Link>
-      
+    <div className="navbar-menu-text"><span className="sidemenu-text"> Compte professionel</span></div>
+    <div className="navbar-menu-text"><span className="sidemenu-text"> Compte technicien</span></div>
+    <div className="navbar-menu-text"><span className="sidemenu-text"> Devenez coursier-partenaire</span></div>
+
+    <span className="navbar-menu-subtext">Projet élective logiciel 2022 - CESI EATS <br/> DUPONT LORENDEAUX TIAN</span>
+
     </Box>
   );
 

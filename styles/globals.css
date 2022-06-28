@@ -168,6 +168,23 @@ body{
   margin-bottom: 8px;
 }
 
+.navbar-menu-text{
+  font-size: 20px;
+  margin: 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.navbar-menu-subtext{
+  position: absolute;
+  font-size: 13px;
+  margin: 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  bottom: 0;
+  text-align: center;
+}
+
 .nocontent{
   padding-top: 5rem;
   padding-bottom: 5rem;
