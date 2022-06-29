@@ -383,6 +383,13 @@ body{
   display: block;
 }
 
+.products-li-admin{
+  width: 90%;
+  margin-right: 2.5%;
+  flex: none;
+  display: block;
+}
+
 .products-pos{
   overflow: hidden;
   position: relative;

@@ -69,6 +69,8 @@ const RestaurantsAdmin: NextPage = () => {
       <h1> Restaurants Admin </h1>
       <button className="navbar-sign_up"> Commandes </button>
       <button className="navbar-sign_up"> Menus & Articles </button>
+      </div>
+      <div className="product-grid">
       <MenuAdmin {...data.menus}/>
       <ArticleAdmin {...data.articles} />
       </div>

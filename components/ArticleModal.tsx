@@ -106,9 +106,9 @@ const ArticleModal : NextPage<Article> = (article) => {
 
     return (
         <>
-            <Button variant="outlined" onClick={handleClickOpen}>
+            <button className="navbar-menu-sign_up" style={{width: "-webkit-fill-available", margin: "0", marginTop: "15px"}} onClick={handleClickOpen}>
                 {article._id.length > 0 ? "Modifier l'article" : "Ajouter un article"}
-            </Button>
+            </button>
             <Dialog open={open} onClose={handleClose}>
             <DialogTitle>Modifier {article.name}</DialogTitle>
             <DialogContent>
