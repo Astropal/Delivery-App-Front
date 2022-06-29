@@ -4,6 +4,7 @@ import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
 export interface UserState {
   token: string;
   refreshToken: string;
+  isConnected: boolean;
 }
 
 /**
@@ -11,7 +12,8 @@ export interface UserState {
  */
 const initialState: UserState = {
   token: '',
-  refreshToken: ''
+  refreshToken: '',
+  isConnected: false
 } as const;
 
 /**
@@ -29,12 +31,21 @@ export const userSlice = createSlice({
       action: PayloadAction<typeof initialState.token>
     ) => {
       state.token = action.payload;
+      state.isConnected = true;
     },
     setRefreshToken: (
         state: Draft<typeof initialState>,
         action: PayloadAction<typeof initialState.refreshToken>
       ) => {
         state.refreshToken = action.payload;
+      },
+    disconnect: (
+        state: Draft<typeof initialState>,
+        action: PayloadAction<typeof initialState.refreshToken>
+      ) => {
+        state.refreshToken = "";
+        state.token = "";
+        state.isConnected= false;
       },
   },
 });
@@ -43,6 +54,6 @@ export const userSlice = createSlice({
 export const getUserState = (state: { user: UserState }) => state.user;
 
 // Exports all actions
-export const {setToken,setRefreshToken } = userSlice.actions;
+export const {setToken,setRefreshToken,disconnect } = userSlice.actions;
 
 export default userSlice.reducer;

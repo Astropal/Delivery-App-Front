@@ -65,7 +65,7 @@ export default function SignUp() {
     try {
       console.log(userData)
       const response = await axios
-      .post("http://localhost:4000/api/v1/auth/register",userData)
+      .post("http://25.17.90.197:4000/api/v1/auth/register",userData)
       .then(res => {
         console.log(res.data);
         router.push('http://localhost:3000/login');

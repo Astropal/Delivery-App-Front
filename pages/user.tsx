@@ -60,21 +60,23 @@ function parseJwt (token: string) {
     profilePicture:"",
     phone: "",
     categoryId: 2,
-    location: [{address:undefined, primary: undefined}]
+    location: [{address:"test", primary: true}]
   });
 
   function getUser(){
      axios
-      .get("http://localhost:4000/api/v1/user/" + userDataId)
+      .get("http://25.17.90.197:4000/api/v1/user/" + userDataId)
       .then(res => {
         const user = res.data;
         setData(user);
         console.log(user);
+        
       })
       ;
   }
 
-  React.useEffect(()=>getUser(),[])
+  React.useEffect(
+    ()=>getUser(),[])
 
 
 
@@ -96,7 +98,7 @@ function parseJwt (token: string) {
     try {
       console.log(userData)
       const response = await axios
-      .put("http://localhost:4000/api/v1/user/" + userDataId ,userData)
+      .put("http://25.17.90.197:4000/api/v1/user/" + userDataId ,userData)
       .then(res => {
         console.log(response);
         //router.push('http://localhost:3000/login');
@@ -204,7 +206,7 @@ function parseJwt (token: string) {
               label="location"
               type="location"
               id="location"
-              value={data.location.address}
+              value={data.location}
               onChange={handleChange}
             />
             <TextField
