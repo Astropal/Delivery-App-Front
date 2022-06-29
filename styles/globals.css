@@ -686,3 +686,30 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.admin-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.admin-card {
+  width: 800px;
+  height: auto;
+  margin-top: 15px;
+}
+
+.admin-connected {
+  width: 15px;
+  height: 15px;
+  background-color: rgb(40, 142, 72);
+  border-radius: 50%;
+}
+
+.admin-disconnected {
+  width: 15px;
+  height: 15px;
+  background-color: rgb(205, 25, 25);
+  border-radius: 50%;
+}

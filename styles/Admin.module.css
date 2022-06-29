@@ -1,0 +1,12 @@
+.containers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: aquamarine;
+}
+
+.card {
+    margin-top: 10px;
+    width: 300px;
+    background-color: blue;
+}
