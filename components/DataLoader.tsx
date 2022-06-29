@@ -8,11 +8,13 @@ interface IProducts_back {
     name?: string;
     description?: string;
     picture?: string;
-    rate?: number;
+    rating?: string;
+    offer?: boolean;
+    deliveryTime?: number;
   }
 
 export const dataLoader = async (): Promise<IProducts_back[]> => {
-    const response = await axios.get('http://localhost:4000/api/v1/restaurants');
+    const response = await axios.get('http://25.17.90.197:4000/api/v1/restaurants');
     const hmm: IProducts_back[] = response as IProducts_back[];
     return new Promise((res) => res(hmm));
     
@@ -21,6 +23,7 @@ export const dataLoader = async (): Promise<IProducts_back[]> => {
 const DataLoader = () => {
 
     const [data, setData] = useState<IProducts_back[]>([]);
+    let delivery_fee = 0;
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -44,8 +47,8 @@ const DataLoader = () => {
                                     <img className="products-img" src={datum.picture}></img>
                                     <div className="products-info">
                                         <h3 className="product-title">{datum.name}</h3>  
-                                        <span className="product-rate">4.2</span>
-                                        <span className="product-subtitle"><FontAwesomeIcon className="product-fas" icon={faTicketSimple}/> • Frais de livraison : 0.99€ • 10-20mins</span>
+                                        <span className="product-rate">{datum.rating}</span>
+                                        <span className="product-subtitle"><FontAwesomeIcon className="product-fas" icon={faTicketSimple}/> • Frais de livraison : {datum.deliveryTime! >= 15? (delivery_fee = 1.49):(delivery_fee = 0.99) }€ • {datum.deliveryTime}-{datum.deliveryTime! + 10}mins</span>
                                     </div>
                                 </a>
                             </div>

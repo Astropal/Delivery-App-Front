@@ -135,6 +135,7 @@ body{
   flex-shrink: 0;
   line-height: 30px;
   background: #EEEEEE;
+  color:rgb(0, 0, 0);
   font-weight: 500;
   width: auto;
   cursor: pointer;
@@ -183,6 +184,39 @@ body{
   margin-top: 20px;
   bottom: 0;
   text-align: center;
+}
+
+.cookies{
+  width: 100%;
+  position: sticky;
+  margin-left: 30%;
+}
+
+.cookies-refuse{
+  border-radius: 0px;
+  font-size: 18px;
+  background: #EEEEEE;
+  color:rgb(0, 0, 0);
+  font-weight: 500;
+  text-align: center;
+  bottom: 15px;
+  margin-right: 15px;
+}
+
+.cookies-accept{
+  border-radius: 0px;
+  font-size: 18px;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  text-align: center;
+  bottom: 15px;
+  margin-right: 15px;
+}
+
+.cookies-accept:hover{
+  color: #000000;
+  background: #EEEEEE;
 }
 
 .nocontent{
