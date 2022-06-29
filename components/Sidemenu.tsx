@@ -35,7 +35,7 @@ const Thumbnail: NextPage = () => {
           <div className="sidemenu-inline-section"><a className="sidemenu-dot">•</a><span className="sidemenu-text"> Note</span></div>
           <div className="sidemenu-inline-section"><a className="sidemenu-dot">•</a><span className="sidemenu-text"> Délai de livraison</span></div>
        </div>
-       <div className="sidemenu-title">Par Uber Eats
+       <div className="sidemenu-title">Par Cesi Eats
           <div className="sidemenu-inline-section">
             <FontAwesomeIcon className="sidemenu-fas" icon={faTag}/>
             <span className="sidemenu-text"> Offres</span>
@@ -43,7 +43,7 @@ const Thumbnail: NextPage = () => {
           </div>
           <div className="sidemenu-inline-section">
                <FontAwesomeIcon className="sidemenu-fas" icon={faMedal}/>
-               <span className="sidemenu-text"> Le Meilleur d'Uber Eats</span>
+               <span className="sidemenu-text"> Le Meilleur de Cesi Eats</span>
                <Switch {...label} />
             </div>
        </div>
