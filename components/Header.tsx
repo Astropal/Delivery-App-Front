@@ -10,7 +10,7 @@ const Header = () => {
         
         { /* Menu */ }
 
-        <div className="MenuSlide">
+        <div className="MenuSlide" style={{marginLeft: "15px"}}>
         <MenuSlide></MenuSlide>
         </div>
 
