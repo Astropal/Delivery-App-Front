@@ -686,3 +686,58 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.admin-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 200px;
+}
+
+.admin-card {
+  width: 800px;
+  height: auto;
+  margin-top: 15px;
+  background-color:#EEEEEE!important;
+  color: #000000!important;
+  border-left: solid 5px rgb(40, 142, 72);
+}
+
+.admin-profils{
+  background-color: #EEEEEE!important;
+}
+
+.admin-connected {
+  width: 15px;
+  height: 15px;
+  background-color: rgb(40, 142, 72);
+  border-radius: 50%;
+}
+
+.admin-disconnected {
+  width: 15px;
+  height: 15px;
+  background-color: rgb(205, 25, 25);
+  border-radius: 50%;
+}
+
+.header-box{
+  padding: 0px 36px;
+  min-height: 70px;
+  background-color: #000000;
+  padding: 0px 16px;
+  min-height: 45px;
+  -webkit-box-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  height: 70px
+}
+
+.MenuSlide{
+  color:rgb(255, 255, 255);
+}

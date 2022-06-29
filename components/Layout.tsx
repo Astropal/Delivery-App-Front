@@ -92,6 +92,9 @@ const Layout: React.FC<ILayout> = ({
               <Link href="/register">
               <div className="navbar-sign_up">Inscription</div>
               </Link>
+              <Link href="/admin">
+                go admin
+              </Link>
           </div>
               
 
