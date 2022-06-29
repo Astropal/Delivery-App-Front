@@ -692,6 +692,7 @@ body{
 
 .restaurant-img{
   height: 250px;
+  width: 250px;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

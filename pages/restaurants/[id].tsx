@@ -91,17 +91,19 @@ const restaurant: NextPage = () => {
 
   return (
     <Layout>
-       <img className="restaurant-thumbnail" src="/img/products/2.jpeg"></img>
-       <div className="main-left-side">
-       {data?.map((datum) => (
-          <div className="restaurant-info">
-              <h1 className="restaurant-title"> {datum.name}</h1>
-              <span className="restaurant-subtitle"> {datum.rating} (114 notes) • Américain • € • <FontAwesomeIcon className="product-fas" icon={faTicketSimple}/></span>                            
-              <span className="product-subtitle">{datum.deliveryTime}-{datum.deliveryTime! + 10}mins • Frais de livraison : {datum.deliveryTime! >= 15? (delivery_fee = 1.49):(delivery_fee = 0.99) }€</span>
-              <br/><span className="product-subtitle">Appuyez pour connaître les horaires, l'adresse et d'autres informations.</span>                            
-          </div>
-        ))}
+      {data?.map((datum) => (
+       <div>
+        <img className="restaurant-thumbnail" src={"/" + datum.picture}></img>
+        <div className="main-left-side">
+            <div className="restaurant-info">
+                <h1 className="restaurant-title"> {datum.name}</h1>
+                <span className="restaurant-subtitle"> {datum.rating} (114 notes) • Américain • € • <FontAwesomeIcon className="product-fas" icon={faTicketSimple}/></span>                            
+                <span className="product-subtitle">{datum.deliveryTime}-{datum.deliveryTime! + 10}mins • Frais de livraison : {datum.deliveryTime! >= 15? (delivery_fee = 1.49):(delivery_fee = 0.99) }€</span>
+                <br/><span className="product-subtitle">Appuyez pour connaître les horaires, l'adresse et d'autres informations.</span>                            
+            </div>
+        </div>
        </div>
+       ))}
        <div className="product-grid">
        <div className="main-left-side">
        <div className="sidemenu-section">
@@ -128,7 +130,7 @@ const restaurant: NextPage = () => {
                     <div className="products-pos">
                           <a><FontAwesomeIcon className="product-fav" style={{color: "black", height: "30px"}} icon={faCirclePlus}/></a>
                           <a className="products-a">
-                            <img className="restaurant-img" src={"/" + datum.picture}></img>
+                            <img className="restaurant-img" src={"http://25.17.90.197:4000/api/v1/cdn/" + datum.picture}></img>
                             <div className="products-info">
                                 <h3 className="product-title">{datum.name}</h3>
                                 <span className="product-subtitle">{datum.price + "€"}</span>
