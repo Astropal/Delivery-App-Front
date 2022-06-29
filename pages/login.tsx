@@ -10,12 +10,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import axios from "axios";
-import {useState} from "react";
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
-import { getUserState, setRefreshToken, setToken } from '@src/redux/token.Slicers';
-import {useRouter} from 'next/router';
 
 function Copyright(props: any) {
   return (
@@ -33,47 +27,14 @@ function Copyright(props: any) {
 const theme = createTheme();
 
 export default function SignIn() {
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const dispatch = useDispatch();
-  const router = useRouter();
-  
-  const getUser = useSelector(getUserState);
-
-  function parseJwt (token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    return JSON.parse(jsonPayload);
-};
-
-
-  const handleSubmit = async (e: { preventDefault: () => any; }) => {
-    e.preventDefault();
-
-    try {
-        const response = await axios
-        .post("http://localhost:4000/api/v1/auth/login",{ email, password })
-        .then(res => {
-          console.log(res.data);
-          const token = res.data.token;
-          axios.defaults.headers.common["Authorization"] = token;
-          dispatch(setToken(res.data.token));
-          console.log(parseJwt(token));
-          dispatch(setRefreshToken(res.data.refreshToken));
-          //router.push('http://localhost:3000');
-        })
-        ;
-    } catch (err) {
-      //router.push('http://localhost:3000/login');
-    }
-}
-
-
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -108,8 +69,6 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
             />
             <TextField
               margin="normal"
@@ -119,7 +78,6 @@ export default function SignIn() {
               label="Password"
               type="password"
               id="password"
-              onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
             />
             <FormControlLabel
@@ -134,7 +92,6 @@ export default function SignIn() {
             >
               Connexion
             </Button>
-
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
