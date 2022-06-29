@@ -647,6 +647,36 @@ body{
   color: #000000;
 }
 
+.restaurant-img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.restaurant-desc{
+  display: block;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.restaurant-info{
+  margin-left: 7%;
+}
+
+.restaurant-subtitle{
+  font-weight: 700;
+}
+
+.restaurant-title{
+  margin-top: 10%;
+  font-size: 36px;
+  line-height: 6px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
