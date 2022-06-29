@@ -35,7 +35,7 @@ const articleAdmin : NextPage<Article[]> = (articles) => {
                 <Card style={{marginRight: "5%"}} key={article._id}>
                       <div className="products-pos">
                             <a className="products-a" href={"/"}>
-                              <img className="restaurant-img" src={"/" + article.picture}></img>
+                              <img className="restaurant-img" src={"http://25.17.90.197:4000/api/v1/cdn/" + article.picture}></img>
                               <div className="products-info" style={{height: "auto", paddingLeft: "10px"}}>
                                   <h3 className="product-title">{article.name}</h3>
                                   <span className="product-subtitle">{article.price + "€"}</span>

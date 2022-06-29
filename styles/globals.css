@@ -384,6 +384,11 @@ body{
   display: block;
 }
 
+.products-li:hover{
+  opacity: 0.8;
+}
+
+
 .products-li-admin{
   width: 90%;
   margin-right: 2.5%;
@@ -687,6 +692,7 @@ body{
 
 .restaurant-img{
   height: 250px;
+  width: 250px;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
