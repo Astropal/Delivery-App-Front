@@ -6,6 +6,7 @@ import NightlightRoundIcon from '@mui/icons-material/NightlightRound';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Header from "@components/header"
 
 interface Session {
   id: number;
@@ -17,7 +18,7 @@ interface Session {
 }
 
 export const dataLoader = async (): Promise<Session[]> => {
-  const response = await axios.get('http://localhost:4000/api/v1/permissions/session/all').then((res) => {
+  const response = await axios.get('http://25.17.90.197:4000/api/v1/permissions/session/all').then((res) => {
     return res.data;
   });
   var test: Session[] = [];
@@ -51,9 +52,12 @@ const Admin: NextPage = () => {
 
   return (
     <div>
-      <h1> Admin </h1>
-      <button> Profils </button>
-      <button> Connection logs </button>
+      <Header></Header>
+      <div className="main-right-side">
+      <h1> Interface d'administration (ACP) </h1>
+      <button className="navbar-sign_up"> Profils </button>
+      <button className="navbar-sign_up"> Connection logs </button>
+      </div>
       <div className="admin-container">
         {data.map(session => (
         <Card key={session.id} className="admin-card">
@@ -65,7 +69,7 @@ const Admin: NextPage = () => {
           }
           action={session.isAuth ? <div className="admin-connected" /> : <div className="admin-disconnected"/>}
           />
-          <CardContent>
+          <CardContent className="admin-profils">
             <Typography variant="body2" color="textSecondary" component="p">
               Role : {session.role}
             </Typography>
@@ -74,7 +78,6 @@ const Admin: NextPage = () => {
         </Card>
         ))}
       </div>
-
     </div>
   )
 }
