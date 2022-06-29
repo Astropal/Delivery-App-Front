@@ -27,22 +27,29 @@ const articleAdmin : NextPage<Article[]> = (articles) => {
     picture: "",
   }
     return (
-      <>
+      <div className="main-right-side">
         <h1> Articles </h1>
-        <div>
-          {Object.values(articles).map((article, id) => (
-              <Card key={article._id}>
-                <h1> {article.name} </h1>
-                <p> Catégorie : {article.category} </p>
-                <p> Description : {article.description} </p>
-                <p> Prix : {article.price} </p>
-                <p> Image : {article.picture} </p>
-                <ArticleModal {...article}/>
-              </Card>
-            ))} 
-            <ArticleModal {...nullArticle}/>
+        <div className="products-section">
+          <div className="products-box">
+            {Object.values(articles).map((article, id) => (
+                <Card style={{marginRight: "5%"}} key={article._id}>
+                      <div className="products-pos">
+                            <a className="products-a" href={"/"}>
+                              <img className="restaurant-img" src={"/" + article.picture}></img>
+                              <div className="products-info" style={{height: "auto", paddingLeft: "10px"}}>
+                                  <h3 className="product-title">{article.name}</h3>
+                                  <span className="product-subtitle">{article.price + "€"}</span>
+                                  <span className="product-subtitle">Description : {article.description} <br/> Catégorie : {article.category}</span>
+                              </div>
+                            </a>
+                      </div>
+                  <ArticleModal {...article}/>
+                </Card>
+              ))}
+          </div>
         </div>
-      </>
+        <ArticleModal {...nullArticle}/>
+      </div>
     )
   }
 

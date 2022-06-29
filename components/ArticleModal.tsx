@@ -106,11 +106,11 @@ const ArticleModal : NextPage<Article> = (article) => {
 
     return (
         <>
-            <Button variant="outlined" onClick={handleClickOpen}>
+            <button className="navbar-menu-sign_up" style={{width: "-webkit-fill-available", margin: "0", marginTop: "15px"}} onClick={handleClickOpen}>
                 {article._id.length > 0 ? "Modifier l'article" : "Ajouter un article"}
-            </Button>
+            </button>
             <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Modifier {article.name}</DialogTitle>
+            <DialogTitle style={{fontSize: "30px", fontWeight: "800"}}>Modifier {article.name}</DialogTitle>
             <DialogContent>
             <DialogContentText>
                 Modifiez les champs ci-dessous pour modifier l'article.
@@ -144,15 +144,12 @@ const ArticleModal : NextPage<Article> = (article) => {
                     variant="standard"
                 />
                 <input type="file" accept="image/*" onChange={onChangeImage} />
-                <Button type="submit" color="primary">
+                <button type="submit" className="navbar-menu-sign_up" style={{width: "100%", margin: "0", marginTop: "20px"}}>
                     Modifier
-                </Button>
+                </button>
             </Box>
             </DialogContent>
             <DialogActions>
-            <Button onClick={handleClose} color="primary">
-                Annuler
-            </Button>
             </DialogActions>
             </Dialog>
         </>

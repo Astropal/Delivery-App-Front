@@ -21,7 +21,7 @@ interface Menu {
 const menuAdmin: NextPage<Menu[]> = (menus) => {
   console.log(menus)
     return (
-      <>
+      <div className="main-left-side">
         <h1> Menus </h1>
         <div>
           {Object.values(menus).map(menu => (
@@ -33,7 +33,7 @@ const menuAdmin: NextPage<Menu[]> = (menus) => {
               </Card>
             ))}
         </div>
-      </>
+      </div>
     )
   }
 
