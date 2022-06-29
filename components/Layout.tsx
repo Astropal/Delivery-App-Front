@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React, { useRef } from "react";
 import MenuSlide from "@components/MenuSlide"
+import Footer from "@components/Footer"
 import Link from 'next/link'
 
 
@@ -94,6 +95,7 @@ const Layout: React.FC<ILayout> = ({
 
       </header>
       <div>{children}</div>
+      <Footer></Footer>
     </div>
   );
 };
