@@ -45,10 +45,10 @@ const ArticleModal : NextPage<Article> = (article) => {
         if(article._id.length > 0) {
 
 
-            axios({method: 'put', url:`http://localhost:4000/api/v1/articles/update/${postArticle._id}`, headers: {'Authorization': 'Bearer ' + token}, data: postArticle})
+            axios({method: 'put', url:`http://25.17.90.197:4000/api/v1/articles/update/${postArticle._id}`, headers: {'Authorization': 'Bearer ' + token}, data: postArticle})
             
             var instance = axios.create({
-                baseUrl: `http://localhost:4000/api/v1/articles/update/${postArticle._id}`,
+                baseUrl: `http://25.17.90.197:4000/api/v1/articles/update/${postArticle._id}`,
                 headers: {'Authorization': 'Bearer ' + token}
             });
             instance.put('/', postArticle)
@@ -60,7 +60,7 @@ const ArticleModal : NextPage<Article> = (article) => {
             })
         } else {
             axios.post(
-                "http://localhost:4000/api/v1/articles/update/",
+                "http://25.17.90.197:4000/api/v1/articles/update/",
                 postArticle,
                 {
                     headers: {
@@ -82,7 +82,7 @@ const ArticleModal : NextPage<Article> = (article) => {
             let formData = new FormData();
             formData.append('recfile', e.target.files[0]);
             axios.post(
-                "http://localhost:4000/api/v1/cdn/upload",
+                "http://25.17.90.197:4000/api/v1/cdn/upload",
                 formData,
                 {
                     headers: {

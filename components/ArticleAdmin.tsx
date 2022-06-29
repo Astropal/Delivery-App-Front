@@ -32,11 +32,11 @@ const articleAdmin : NextPage<Article[]> = (articles) => {
         <div>
           {Object.values(articles).map((article, id) => (
               <Card key={article._id}>
-                <h1> Nom {article.name} </h1>
-                <p> Catégorie {article.category} </p>
-                <p> Description {article.description} </p>
-                <p> Prix {article.price} </p>
-                <p> Image {article.picture} </p>
+                <h1> {article.name} </h1>
+                <p> Catégorie : {article.category} </p>
+                <p> Description : {article.description} </p>
+                <p> Prix : {article.price} </p>
+                <p> Image : {article.picture} </p>
                 <ArticleModal {...article}/>
               </Card>
             ))} 
