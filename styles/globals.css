@@ -647,7 +647,7 @@ body{
   color: #000000;
 }
 
-.restaurant-img{
+.restaurant-thumbnail{
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -675,6 +675,10 @@ body{
   line-height: 6px;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.restaurant-img{
+  height: 250px;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

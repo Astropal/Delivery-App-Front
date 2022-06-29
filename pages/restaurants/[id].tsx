@@ -13,8 +13,8 @@ const restaurant: NextPage = () => {
 
 
   return (
-    <Layout title="Home">
-       <img className="restaurant-img" src="/img/products/2.jpeg"></img>
+    <Layout>
+       <img className="restaurant-thumbnail" src="/img/products/2.jpeg"></img>
        <div className="main-left-side">
         <div className="restaurant-info">
             <h1 className="restaurant-title"> Titre restaurant</h1>
@@ -40,6 +40,37 @@ const restaurant: NextPage = () => {
        </div>
        </div>
        <div className="main-right-side">
+
+          <h1>Catégorie 1</h1>
+          <div className="products-section">
+              <div className="products-box">
+                          <li className="products-li">
+                            <div className="products-pos">
+                                  <a className="products-a" href={"/"}>
+                                    <img className="restaurant-img" src={"/img/products/2.jpeg"}></img>
+                                    <div className="products-info">
+                                        <h3 className="product-title">Titre Produit</h3>
+                                        <span className="product-subtitle">3,00€</span>
+                                    </div>
+                                  </a>
+                            </div>
+                          </li>
+
+                          <li className="products-li">
+                            <div className="products-pos">
+                                  <a className="products-a" href={"/"}>
+                                    <img className="restaurant-img" src={"/img/products/2.jpeg"}></img>
+                                    <div className="products-info">
+                                        <h3 className="product-title">Titre Produit</h3>
+                                        <span className="product-subtitle">3,00€</span>
+                                    </div>
+                                  </a>
+                            </div>
+                          </li>
+
+              </div>
+          </div>
+
        </div>
 
        </div>
