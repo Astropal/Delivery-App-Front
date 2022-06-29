@@ -82,7 +82,7 @@ body{
   padding-right: 2.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-    --tw-bg-opacity: 1;
+  --tw-bg-opacity: 1;
   background-color: #e5e7eb;
   border-radius: 1.5rem;
   font-size: large;
@@ -124,6 +124,99 @@ body{
   color: #FFFF;
   border-radius: 1.5rem;
   cursor: pointer;
+}
+
+.navbar-menu-sign_in{
+  border-radius: 0px;
+  padding: 12px 16px;
+  font-size: 18px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 30px;
+  background: #EEEEEE;
+  color:rgb(0, 0, 0);
+  font-weight: 500;
+  width: auto;
+  cursor: pointer;
+  -webkit-box-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 25px;
+  margin-bottom: 5px;
+  margin-top: 8px;
+}
+
+.navbar-menu-sign_up{
+  border-radius: 0px;
+  padding: 12px 16px;
+  font-size: 18px;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 30px;
+  font-weight: 500;
+  width: auto;
+  cursor: pointer;
+  -webkit-box-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 25px;
+  margin-bottom: 8px;
+}
+
+.navbar-menu-text{
+  font-size: 20px;
+  margin: 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.navbar-menu-subtext{
+  position: absolute;
+  font-size: 13px;
+  margin: 25px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  bottom: 0;
+  text-align: center;
+}
+
+.cookies{
+  width: 100%;
+  position: sticky;
+  margin-left: 30%;
+}
+
+.cookies-refuse{
+  border-radius: 0px;
+  font-size: 18px;
+  background: #EEEEEE;
+  color:rgb(0, 0, 0);
+  font-weight: 500;
+  text-align: center;
+  bottom: 15px;
+  margin-right: 15px;
+}
+
+.cookies-accept{
+  border-radius: 0px;
+  font-size: 18px;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  text-align: center;
+  bottom: 15px;
+  margin-right: 15px;
+}
+
+.cookies-accept:hover{
+  color: #000000;
+  background: #EEEEEE;
 }
 
 .nocontent{
