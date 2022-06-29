@@ -2,9 +2,11 @@
 import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit';
 
 interface article {
+  _id: string;
   name: string;
-  price: number;
   description: string;
+  picture: string;
+  price: string;
 }
 
 export interface ArticleState {
@@ -37,11 +39,11 @@ export const articleSlice = createSlice({
       state: Draft<typeof initialState>,
       action: PayloadAction<typeof initialState.articles> 
     ) => {
-      state.articles = [{}];
+      state.articles = [];
     },
     removeFromCart: (state, action) => {
       const index = state.articles.findIndex((item) => item);
-      state.articles.splice(index, 1);
+      state.articles.splice(index,1);
     },
   },
 });
