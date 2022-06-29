@@ -9,7 +9,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 const Footer = () => {
 
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);

@@ -10,12 +10,23 @@ import Food from "@svgs/Food.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart, faTicketSimple} from "@fortawesome/free-solid-svg-icons";
 
+interface IArticle{
+  _id: string;
+  name: string;
+  description: string;
+  picture: string;
+  price: string;
+}
+
 interface IRestaurant {
   _id: number;
   name?: string;
   description?: string;
   picture?: string;
   rating?: string;
+  articles?: IArticle[];
+  offer?: boolean;
+  deliveryTime?: number;
 }
 
 const restaurant: NextPage = () => {
@@ -23,36 +34,36 @@ const restaurant: NextPage = () => {
   const router = useRouter();
   const id = router.query.id;
   const dataLoader = async (): Promise<IRestaurant[]> => {
-  const response = await axios.get("http://localhost:4000/api/v1/restaurants/"+ [id]);
+  const response = await axios.get("http://25.17.90.197:4000/api/v1/restaurants/"+ [id]);
   const hmm: IRestaurant[] = response as IRestaurant[];
   return new Promise((res) => res(hmm));
-    
   };
-
   const [data, setData] = useState<IRestaurant[]>([]);
+  const produits = data[0]?.articles;
+  
+  let delivery_fee = 0;
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            dataLoader().then((res) => {
-            setData(res.data);
-          });
-        }, Math.random() * 1000);
-        return () => clearTimeout(timer);
-        }, []);
+  useEffect(() => {
+      const timer = setTimeout(() => {
+          dataLoader().then((res) => {
+          setData(res.data);
+        });
+      }, Math.random() * 1000);
+      return () => clearTimeout(timer);
+      }, []);
 
 
-        console.log(data);
-
+  console.log(data[0]?.articles);
 
   return (
     <Layout>
        <img className="restaurant-thumbnail" src="/img/products/2.jpeg"></img>
        <div className="main-left-side">
-       {data.map((datum) => (
+       {data?.map((datum) => (
           <div className="restaurant-info">
               <h1 className="restaurant-title"> {datum.name}</h1>
               <span className="restaurant-subtitle"> {datum.rating} (114 notes) • Américain • € • <FontAwesomeIcon className="product-fas" icon={faTicketSimple}/></span>                            
-              <span className="product-subtitle">10-20mins • Frais de livraison : 0.99€</span>
+              <span className="product-subtitle">{datum.deliveryTime}-{datum.deliveryTime! + 10}mins • Frais de livraison : {datum.deliveryTime! >= 15? (delivery_fee = 1.49):(delivery_fee = 0.99) }€</span>
               <br/><span className="product-subtitle">Appuyez pour connaître les horaires, l'adresse et d'autres informations.</span>                            
           </div>
         ))}
@@ -78,33 +89,20 @@ const restaurant: NextPage = () => {
           <h1>Catégorie 1</h1>
           <div className="products-section">
               <div className="products-box">
-                          <li className="products-li">
-                            <div className="products-pos">
-                                  <a href={"/"}><FontAwesomeIcon className="product-fav" icon={faHeart}/></a>
-                                  <a className="products-a" href={"/"}>
-                                    <img className="restaurant-img" src={"/img/products/2.jpeg"}></img>
-                                    <div className="products-info">
-                                        <h3 className="product-title">Titre Produit</h3>
-                                        <span className="product-subtitle">3,00€</span>
-                                    </div>
-                                  </a>
+                  {produits?.map((datum) => (
+                    <li className="products-li">
+                    <div className="products-pos">
+                          <a href={"/"}><FontAwesomeIcon className="product-fav" icon={faHeart}/></a>
+                          <a className="products-a" href={"/"}>
+                            <img className="restaurant-img" src={"/" + datum.picture}></img>
+                            <div className="products-info">
+                                <h3 className="product-title">{datum.name}</h3>
+                                <span className="product-subtitle">{datum.price + "€"}</span>
                             </div>
-                          </li>
-
-                          <li className="products-li">
-                            <div className="products-pos">
-                                  <a href={"/"}><FontAwesomeIcon className="product-fav" icon={faHeart}/></a>
-                                  <a className="products-a" href={"/"}>
-                                    <img className="restaurant-img" src={"/img/products/2.jpeg"}></img>
-                                    <div className="products-info">
-                                        <h3 className="product-title">Titre Produit</h3>
-                                        <span className="product-subtitle">3,00€</span>
-                                    </div>
-                                  </a>
-                            </div>
-                          </li>
-
-
+                          </a>
+                    </div>
+                  </li>
+                ))}
               </div>
           </div>
 
