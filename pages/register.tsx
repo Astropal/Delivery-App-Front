@@ -11,10 +11,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
-import {useState} from "react";
-import { useDispatch } from 'react-redux';
+import { useState } from "react";
+import { getUserState } from '@src/redux/token.Slicers';
 import { useSelector } from 'react-redux';
-import { getUserState, setRefreshToken, setToken } from '@src/redux/token.Slicers';
 import {useRouter} from 'next/router';
 
 function Copyright(props: any) {
@@ -32,47 +31,59 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-export default function SignIn() {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const dispatch = useDispatch();
+export default function SignUp() {
   const router = useRouter();
-  
+
   const getUser = useSelector(getUserState);
 
-  function parseJwt (token) {
-    var base64Url = token.split('.')[1];
-    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
 
-    return JSON.parse(jsonPayload);
-};
-
+  const [data, setData] = useState({
+    password: "",
+    name:"",
+    email: "",
+    surname:"",
+    profilePicture:"",
+    phone: "",
+    categoryId: 2,
+    location : [{address: "test", primary: false}]
+  });
 
   const handleSubmit = async (e: { preventDefault: () => any; }) => {
     e.preventDefault();
+    const userData = {
+      email: data.email,
+      password: data.password,
+      name: data.name,
+      surname: data.surname,
+      profilePicture: data.profilePicture,
+      phone: data.phone,
+      categoryId: data.categoryId,
+      location: data.location[0].address,
+    };
 
     try {
-        const response = await axios
-        .post("http://localhost:4000/api/v1/auth/login",{ email, password })
-        .then(res => {
-          console.log(res.data);
-          const token = res.data.token;
-          axios.defaults.headers.common["Authorization"] = token;
-          dispatch(setToken(res.data.token));
-          console.log(parseJwt(token));
-          dispatch(setRefreshToken(res.data.refreshToken));
-          //router.push('http://localhost:3000');
-        })
-        ;
-    } catch (err) {
-      //router.push('http://localhost:3000/login');
-    }
-}
+      console.log(userData)
+      const response = await axios
+      .post("http://localhost:4000/api/v1/auth/register",userData)
+      .then(res => {
+        console.log(res.data);
+        router.push('http://localhost:3000/login');
+      })
+      ;
+  } catch (err) {
+    router.push('http://localhost:3000/register');
+  }
+  };
 
+
+  const handleChange = (e: { target: { value: any; name: any; }; }) => {
+    const value = e.target.value;
+    setData({
+      ...data,
+      [e.target.name]: value
+    });
+  };
 
 
   return (
@@ -96,9 +107,75 @@ export default function SignIn() {
           </svg>
           </Link>
           <Typography component="h1" variant="h5">
-            Connexion
+            S'inscrire
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Name"
+              name="name"
+              autoFocus
+              value={data.name}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="surname"
+              label="Surname"
+              name="surname"
+              autoFocus
+              value={data.surname}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="pictureUrl"
+              label="Picture"
+              name="picture"
+              autoFocus
+              value={data.profilePicture}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="phone"
+              label="Phone number"
+              name="phone"
+              autoFocus
+              value={data.phone}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="categoryId"
+              label="Category"
+              type="categoryId"
+              id="categoryId"
+              value={data.categoryId}
+              onChange={handleChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="location"
+              label="Location"
+              type="location"
+              id="location"
+              value={data.location[0].address}
+              onChange={handleChange}
+            />
             <TextField
               margin="normal"
               required
@@ -108,8 +185,8 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
+              value={data.email}
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -119,8 +196,9 @@ export default function SignIn() {
               label="Password"
               type="password"
               id="password"
-              onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
+              value={data.password}
+              onChange={handleChange}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -132,21 +210,8 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Connexion
+              Valider
             </Button>
-
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Mot de passe oublié ?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Pas de compte ? Inscrivez-vous"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
