@@ -45,13 +45,12 @@ const ArticleModal : NextPage<Article> = (article) => {
         if(article._id.length > 0) {
 
 
-            axios({method: 'put', url:`http://25.17.90.197:4000/api/v1/articles/update/${postArticle._id}`, headers: {'Authorization': 'Bearer ' + token}, data: postArticle})
-            
-            var instance = axios.create({
-                baseUrl: `http://25.17.90.197:4000/api/v1/articles/update/${postArticle._id}`,
-                headers: {'Authorization': 'Bearer ' + token}
-            });
-            instance.put('/', postArticle)
+            axios.put("http://25.17.90.197:4000/api/v1/articles/update/" + article._id, postArticle,{
+                headers: {
+                    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYW50aG8iLCJwZXJtaXNzaW9uIjoiMSIsImlhdCI6MTY1NjQ5NDM2NiwiZXhwIjoxNjU2NTAxNTY2fQ.kf6hKYFEpeMdMbW9Snst0K5P3Agdgi_nn1K_aLU9nCAU-x5U213uHlR73dA_VGAYFf0XYylY5UVfiApBFGcU7gcDJ2KlT-_BHRDk54KAYE5kMN11fR3VJy_vUpwN7zRcN7oPVAiq_xQN2iGb9Xv1BgcqEwpnVjzBZHJZtH6AfKM",
+                    "Access-Control-Allow-Origin": "*"
+                },                    
+            } )
             .then(res => {
                 console.log(res.data);
             })
