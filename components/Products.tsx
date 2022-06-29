@@ -75,7 +75,7 @@ const Products: NextPage = () => {
                         
                     </div>
                 </div>
-            <h1>Nouveau sur Uber Eats</h1>
+            <h1>Nouveau sur Cesi Eats</h1>
             <div className="products-section">
                 <div className="products-box">
                 
@@ -102,7 +102,7 @@ const Products: NextPage = () => {
                             
                 </div>
             </div>
-            <h1>Ici c'est le BACK !</h1>
+            <h1>Nos offres "BACK"</h1>
             <Restaurants></Restaurants>
         </div>
     </div>
