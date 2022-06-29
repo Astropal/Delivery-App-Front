@@ -384,6 +384,11 @@ body{
   display: block;
 }
 
+.products-li:hover{
+  opacity: 0.8;
+}
+
+
 .products-li-admin{
   width: 90%;
   margin-right: 2.5%;

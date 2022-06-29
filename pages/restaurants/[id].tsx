@@ -8,7 +8,7 @@ import Products from '@components/Products';
 import Thumbnail from "@components/Thumbnail";
 import Food from "@svgs/Food.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faHeart, faTicketSimple} from "@fortawesome/free-solid-svg-icons";
+import {faHeart, faTicketSimple, faCirclePlus} from "@fortawesome/free-solid-svg-icons";
 import { getArticleState, setArticles, deleteArticles, removeFromCart } from '@src/redux/article.Slicers';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -124,15 +124,14 @@ const restaurant: NextPage = () => {
           <div className="products-section">
               <div className="products-box">
                   {produits?.map((datum) => (
-                    <li className="products-li">
+                    <li className="products-li" onClick={() => addArticle(datum)}>
                     <div className="products-pos">
-                          <a href={"/"}><FontAwesomeIcon className="product-fav" icon={faHeart}/></a>
-                          <a className="products-a" href={"/"}>
+                          <a><FontAwesomeIcon className="product-fav" style={{color: "black", height: "30px"}} icon={faCirclePlus}/></a>
+                          <a className="products-a">
                             <img className="restaurant-img" src={"/" + datum.picture}></img>
                             <div className="products-info">
                                 <h3 className="product-title">{datum.name}</h3>
                                 <span className="product-subtitle">{datum.price + "€"}</span>
-                                <button onClick={() => addArticle(datum)}>Ajouter</button>
                             </div>
                           </a>
                     </div>
