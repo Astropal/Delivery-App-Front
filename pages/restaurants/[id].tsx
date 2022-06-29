@@ -9,6 +9,10 @@ import Thumbnail from "@components/Thumbnail";
 import Food from "@svgs/Food.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faHeart, faTicketSimple} from "@fortawesome/free-solid-svg-icons";
+import { getArticleState, setArticles, deleteArticles, removeFromCart } from '@src/redux/article.Slicers';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { getUserState } from '@src/redux/token.Slicers';
 
 interface IArticle{
   _id: string;
@@ -40,6 +44,7 @@ const restaurant: NextPage = () => {
   };
   const [data, setData] = useState<IRestaurant[]>([]);
   const produits = data[0]?.articles;
+  const getUser = useSelector(getUserState);
   
   let delivery_fee = 0;
 
@@ -49,11 +54,40 @@ const restaurant: NextPage = () => {
           setData(res.data);
         });
       }, Math.random() * 1000);
+      console.log(getCart.articles);
+      setCart(getCart.articles);
       return () => clearTimeout(timer);
       }, []);
 
 
   console.log(data[0]?.articles);
+
+  //------------------------------------------------------------
+  var [cart,setCart] = useState<IArticle[]>([]);
+  const dispatch = useDispatch();
+  const getCart = useSelector(getArticleState);
+
+  function addArticle(temp){
+    cart.push(temp);
+    dispatch(setArticles(temp));
+    console.log(cart);
+    console.log(getCart.articles);
+  }
+
+  function removeArticle(temp){
+    const index = cart.findIndex((temp) => temp);
+    cart.splice(index, 1);
+    dispatch(removeFromCart(temp));
+    console.log(cart);
+    console.log(getCart.articles);
+  }
+
+  function emptyCart(){
+    cart.length = 0;
+    dispatch(deleteArticles(cart));
+    console.log(cart);
+    console.log(getCart.articles);
+  }
 
   return (
     <Layout>
@@ -98,12 +132,24 @@ const restaurant: NextPage = () => {
                             <div className="products-info">
                                 <h3 className="product-title">{datum.name}</h3>
                                 <span className="product-subtitle">{datum.price + "€"}</span>
+                                <button onClick={() => addArticle(datum)}>Ajouter</button>
                             </div>
                           </a>
                     </div>
                   </li>
                 ))}
               </div>
+          </div>
+          <div>
+            {cart && cart.map(cart =>
+                        <tr key={cart._id}>
+                            <td>{cart.description}</td>
+                            <td>{cart.name}</td>
+                            <td>{cart.picture}</td>
+                            <td>{cart.price}</td>
+                        </tr>
+            )}
+            <button onClick={() => emptyCart()}>Vider le panier</button>
           </div>
 
        </div>

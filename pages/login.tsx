@@ -14,7 +14,7 @@ import axios from "axios";
 import {useState} from "react";
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getUserState, setRefreshToken, setToken } from '@src/redux/token.Slicers';
+import { getUserState, setRefreshToken, setToken, disconnect } from '@src/redux/token.Slicers';
 import {useRouter} from 'next/router';
 
 function Copyright(props: any) {
@@ -57,7 +57,7 @@ export default function SignIn() {
 
     try {
         const response = await axios
-        .post("http://localhost:4000/api/v1/auth/login",{ email, password })
+        .post("http://25.17.90.197:4000/api/v1/auth/login",{ email, password })
         .then(res => {
           console.log(res.data);
           const token = res.data.token;
@@ -65,7 +65,7 @@ export default function SignIn() {
           dispatch(setToken(res.data.token));
           console.log(parseJwt(token));
           dispatch(setRefreshToken(res.data.refreshToken));
-          //router.push('http://localhost:3000');
+          //router.push('http://localhost:3000');   
         })
         ;
     } catch (err) {
