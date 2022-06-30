@@ -384,6 +384,11 @@ body{
   display: block;
 }
 
+.products-li:hover{
+  opacity: 0.8;
+}
+
+
 .products-li-admin{
   width: 90%;
   margin-right: 2.5%;
@@ -489,6 +494,14 @@ body{
   font-family: sans-serif;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.cart-img{
+  height: 60px;
+}
+
+.cart-text{
+  vertical-align: middle;
 }
 
 .thumbnail-section{
@@ -687,6 +700,7 @@ body{
 
 .restaurant-img{
   height: 250px;
+  width: 250px;
 }
 
 input[type="number"]::-webkit-outer-spin-button,

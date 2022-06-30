@@ -45,13 +45,12 @@ const ArticleModal : NextPage<Article> = (article) => {
         if(article._id.length > 0) {
 
 
-            axios({method: 'put', url:`http://25.17.90.197:4000/api/v1/articles/update/${postArticle._id}`, headers: {'Authorization': 'Bearer ' + token}, data: postArticle})
-            
-            var instance = axios.create({
-                baseUrl: `http://25.17.90.197:4000/api/v1/articles/update/${postArticle._id}`,
-                headers: {'Authorization': 'Bearer ' + token}
-            });
-            instance.put('/', postArticle)
+            axios.put("http://25.17.90.197:4000/api/v1/articles/update/" + article._id, postArticle,{
+                headers: {
+                    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYW50aG8iLCJwZXJtaXNzaW9uIjoiMSIsImlhdCI6MTY1NjU0NDY2MywiZXhwIjoxNjU2NTUxODYzfQ.DFDPJKf0mnDAOaMuBMOjKRGXEKgCnkn_Fo_JTDxWqQFeAtSZhE5an2z9NO3a5jjNYuGXs5fyh_Jog2bNxravh3mJ5EPVcjYADCrrFCG-WXNEX1iTBfv7PNBJ6VxJwFJE8PJBzfWVXmKV78xkQCRwDAvc2BuHIDNl8Lui7JVDz3s",
+                    "Access-Control-Allow-Origin": "*"
+                },                    
+            } )
             .then(res => {
                 console.log(res.data);
             })
@@ -64,7 +63,7 @@ const ArticleModal : NextPage<Article> = (article) => {
                 postArticle,
                 {
                     headers: {
-                        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYW50aG8iLCJwZXJtaXNzaW9uIjoiMSIsImlhdCI6MTY1NjQ5NDM2NiwiZXhwIjoxNjU2NTAxNTY2fQ.kf6hKYFEpeMdMbW9Snst0K5P3Agdgi_nn1K_aLU9nCAU-x5U213uHlR73dA_VGAYFf0XYylY5UVfiApBFGcU7gcDJ2KlT-_BHRDk54KAYE5kMN11fR3VJy_vUpwN7zRcN7oPVAiq_xQN2iGb9Xv1BgcqEwpnVjzBZHJZtH6AfKM",
+                        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYW50aG8iLCJwZXJtaXNzaW9uIjoiMSIsImlhdCI6MTY1NjU0NDY2MywiZXhwIjoxNjU2NTUxODYzfQ.DFDPJKf0mnDAOaMuBMOjKRGXEKgCnkn_Fo_JTDxWqQFeAtSZhE5an2z9NO3a5jjNYuGXs5fyh_Jog2bNxravh3mJ5EPVcjYADCrrFCG-WXNEX1iTBfv7PNBJ6VxJwFJE8PJBzfWVXmKV78xkQCRwDAvc2BuHIDNl8Lui7JVDz3s",
                         "Access-Control-Allow-Origin": "*"
                     },                    
                 }
@@ -86,7 +85,7 @@ const ArticleModal : NextPage<Article> = (article) => {
                 formData,
                 {
                     headers: {
-                        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYW50aG8iLCJwZXJtaXNzaW9uIjoiMSIsImlhdCI6MTY1NjQ5NDM2NiwiZXhwIjoxNjU2NTAxNTY2fQ.kf6hKYFEpeMdMbW9Snst0K5P3Agdgi_nn1K_aLU9nCAU-x5U213uHlR73dA_VGAYFf0XYylY5UVfiApBFGcU7gcDJ2KlT-_BHRDk54KAYE5kMN11fR3VJy_vUpwN7zRcN7oPVAiq_xQN2iGb9Xv1BgcqEwpnVjzBZHJZtH6AfKM",
+                        "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYW50aG8iLCJwZXJtaXNzaW9uIjoiMSIsImlhdCI6MTY1NjU0NDY2MywiZXhwIjoxNjU2NTUxODYzfQ.DFDPJKf0mnDAOaMuBMOjKRGXEKgCnkn_Fo_JTDxWqQFeAtSZhE5an2z9NO3a5jjNYuGXs5fyh_Jog2bNxravh3mJ5EPVcjYADCrrFCG-WXNEX1iTBfv7PNBJ6VxJwFJE8PJBzfWVXmKV78xkQCRwDAvc2BuHIDNl8Lui7JVDz3s",
                         withCredentials: true
                     },                    
                 }
@@ -145,7 +144,7 @@ const ArticleModal : NextPage<Article> = (article) => {
                 />
                 <input type="file" accept="image/*" onChange={onChangeImage} />
                 <button type="submit" className="navbar-menu-sign_up" style={{width: "100%", margin: "0", marginTop: "20px"}}>
-                    Modifier
+                    Envoyer
                 </button>
             </Box>
             </DialogContent>
