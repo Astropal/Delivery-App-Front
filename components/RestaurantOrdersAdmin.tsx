@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { NextPage } from "next"
-import { Box, Button, Card, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, InputAdornment, InputLabel, OutlinedInput, TextField } from "@mui/material";
+import { Box, Button, Card, CardContent, CardHeader, Typography } from "@mui/material";
 import axios from "axios";
 import ArticleModal from "@components/ArticleModal"
 import {io}  from "socket.io-client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCheck, faXmark} from "@fortawesome/free-solid-svg-icons";
 
 export interface Article {
     _id: string,
@@ -83,15 +85,29 @@ const restaurantOrdersAdmin : NextPage = () => {
           return (
             <>
             <div>
-              <h1> Restaurants Commandes </h1>
-              {data.map(order => (
-                  <div key={order._id}> 
-                    <h4> Status {order.status} </h4>
-                    <p>  CustomerID : {order.customerId} </p>
-                    <button onClick={() => refuseOrder(order._id)}> x </button>
-                    <button onClick={() => acceptOrder(order._id)}> v </button>
+              <div className="main-right-side">
+                <h1> Restaurants Commandes </h1>
+                <div className="products-section">
+                  <div className="products-box">
+                    {data.map(order => (
+
+                        <Card key={order._id} className="admin-card" style={{border: "0", width: "40%"}}>
+                        <CardHeader
+                        title={"Status : " + order.status}
+                        subheader={
+                          <>
+                          <p>Référence de commande : {order._id}</p>
+                          <p>CustomerID : {order.customerId}</p>
+                          </>
+                        }
+                        />
+                        <button className="admin-decline" onClick={() => refuseOrder(order._id)}><FontAwesomeIcon icon={faXmark}/></button>
+                        <button className="admin-validate" onClick={() => acceptOrder(order._id)}><FontAwesomeIcon icon={faCheck}/></button>
+                        </Card>
+                        ))}
                   </div>
-                ))}
+                </div>
+              </div>
             </div>
           </>
           )
