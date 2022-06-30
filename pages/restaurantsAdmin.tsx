@@ -10,7 +10,7 @@ import ArticleAdmin from '@components/ArticleAdmin';
 import MenuAdmin from '@components/MenuAdmin';
 import { Restaurant } from '@mui/icons-material';
 import ArticleModal from '@components/ArticleModal';
-import Header from "@components/header"
+import Header from "@components/Header"
 
 
 export interface Article {
