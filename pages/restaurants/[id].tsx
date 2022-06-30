@@ -73,9 +73,6 @@ const restaurant: NextPage = () => {
       return () => clearTimeout(timer);
       }, []);
 
-
-  console.log(data[0]?.articles);
-
   //---------------------CART-----------------------------------
   var [cart,setCart] = useState<IArticle[]>([]);
   const dispatch = useDispatch();
