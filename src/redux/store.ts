@@ -9,6 +9,7 @@ import { persistReducer } from 'redux-persist';
 import thunk from 'redux-thunk';
 import storage from 'redux-persist/lib/storage';
 import articleSlicers from './article.Slicers';
+import cookieSlicers from './cookie.Slicers';
 
 /**
  * Creates a store and includes all the slices as reducers.
@@ -21,6 +22,7 @@ export const store = configureStore({
 const reducers = combineReducers({
     user: userSlice,
     article: articleSlicers,
+    cookie: cookieSlicers,
   })
 
 

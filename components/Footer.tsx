@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -7,18 +7,33 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import zIndex from "@mui/material/styles/zIndex";
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { getCookieState, openSetter } from '@src/redux/cookie.Slicers';
 
 
 const Footer = () => {
+  const dispatch = useDispatch();
+  const OpenFromRedux = useSelector(getCookieState);
+  const [open, setOpen] = React.useState(OpenFromRedux.isOpen);
 
-  const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
+  
+
+
+  const handleClickOpen = () => {  
     setOpen(true);
+    dispatch(openSetter(open));
   };
 
   const handleClose = () => {
     setOpen(false);
+    setTimeout(() => {
+      dispatch(openSetter(false));
+      console.log(OpenFromRedux.isOpen);
+    }, 1000)    
+    
+    
   };
 
   return (
