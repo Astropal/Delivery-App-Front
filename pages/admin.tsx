@@ -6,7 +6,7 @@ import NightlightRoundIcon from '@mui/icons-material/NightlightRound';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Header from "@components/header"
+import Header from "@components/Header"
 
 interface Session {
   id: number;

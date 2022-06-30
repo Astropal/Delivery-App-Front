@@ -10,7 +10,8 @@ import ArticleAdmin from '@components/ArticleAdmin';
 import MenuAdmin from '@components/MenuAdmin';
 import { Restaurant } from '@mui/icons-material';
 import ArticleModal from '@components/ArticleModal';
-import Header from "@components/header"
+import Header from "@components/Header"
+import RestaurantOrdersAdmin from '@components/RestaurantOrdersAdmin';
 
 
 export interface Article {
@@ -46,7 +47,7 @@ const dataLoader = async (): Promise<IRestaurant> => {
   };
 
 const RestaurantsAdmin: NextPage = () => {  
-
+  const [display, setDisplay] = useState<String>("Articles")
   const [data, setData] = useState<IRestaurant[]>([]);
 
     useEffect(() => {
@@ -67,13 +68,18 @@ const RestaurantsAdmin: NextPage = () => {
       <Header></Header>
       <div className="main-right-side">
       <h1> Restaurants Admin </h1>
-      <button className="navbar-sign_up"> Commandes </button>
-      <button className="navbar-sign_up"> Menus & Articles </button>
+      <button className="navbar-sign_up" onClick={() => setDisplay("Commandes")}> Commandes </button>
+      <button className="navbar-sign_up" onClick={() => setDisplay("Articles")}> Menus & Articles </button>
       </div>
-      <div className="product-grid">
-      <MenuAdmin {...data.menus}/>
-      <ArticleAdmin {...data.articles} />
-      </div>
+      {display === "Articles" ? (
+          <div className="product-grid">
+            <MenuAdmin {...data.menus}/>
+            <ArticleAdmin {...data.articles} />
+          </div>
+      ) : (
+        <RestaurantOrdersAdmin />
+      )}
+
     </>
   )
 }
