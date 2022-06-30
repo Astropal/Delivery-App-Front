@@ -496,6 +496,14 @@ body{
   overflow: hidden;
 }
 
+.cart-img{
+  height: 60px;
+}
+
+.cart-text{
+  vertical-align: middle;
+}
+
 .thumbnail-section{
   display: flex;
   padding: 24px 40px;
