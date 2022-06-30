@@ -34,12 +34,25 @@ export interface IOrder {
 }
 
 
-const dataLoader = async (): Promise<IOrder[]> => {
-  const response = await axios.get('http://25.17.90.197:4000/api/v1/order/status/preparating');
+const dataLoaderAccepted = async (): Promise<IOrder[]> => {
+  const response = await axios.get('http://25.17.90.197:4000/api/v1/order/status/accepted');
   const hmm: IOrder[] = response as IOrder[];
   return new Promise((res) => res(hmm));
-    
   };
+
+  const dataLoaderDelivering = async () : Promise<IOrder[]> => {
+    const response = await axios.get('http://25.17.90.197:4000/api/v1/order/status/delivering');
+  const hmm: IOrder[] = response as IOrder[];
+  return new Promise((res) => res(hmm));
+  };
+
+  const dataLoaderDelivered = async () : Promise<IOrder[]> => {
+    const response = await axios.get('http://25.17.90.197:4000/api/v1/order/status/delivered');
+  const hmm: IOrder[] = response as IOrder[];
+  return new Promise((res) => res(hmm));
+  };
+
+  
 
 const socket = io('http://localhost:3006');
         
@@ -54,14 +67,28 @@ const DeliveryAdmin: NextPage = () => {
       });
 
       socket.on("delivery", (order) => {
-        dataLoader().then((res) => {
+        dataLoaderAccepted().then((res) => {
           setData(res.data);
+          dataLoaderDelivering().then((res2) => {
+            dataLoaderDelivered().then(res3 => {
+              let datas = res.data.concat(res2.data);
+              datas.concat(res3.data);
+              setData(datas);
+            })
+          })
         });
       })
 
       const timer = setTimeout(() => {
-          dataLoader().then((res) => {
+        dataLoaderAccepted().then((res) => {
           setData(res.data);
+          dataLoaderDelivering().then((res2) => {
+            dataLoaderDelivered().then(res3 => {
+              let datas = res.data.concat(res2.data);
+              datas.concat(res3.data);
+              setData(datas);
+            })
+          })
         });
       }, Math.random() * 1000);
       return () => clearTimeout(timer);
@@ -72,8 +99,15 @@ const DeliveryAdmin: NextPage = () => {
       await axios.put('http://25.17.90.197:4000/api/v1/order/'+id, {
         status: "delivering"
       }).then(() => {
-        dataLoader().then((res) => {
+        dataLoaderAccepted().then((res) => {
           setData(res.data);
+          dataLoaderDelivering().then((res2) => {
+            dataLoaderDelivered().then(res3 => {
+              let datas = res.data.concat(res2.data);
+              datas.concat(res3.data);
+              setData(datas);
+            })
+          })
         });
       }).catch(err => {
         console.log(err);
@@ -91,7 +125,7 @@ const DeliveryAdmin: NextPage = () => {
       <Header></Header>
       <div>
         <div className="main-right-side">
-          <h1> Restaurants Commandes </h1>
+          <h1> Livreurs Commandes </h1>
           <div className="products-section">
             <div className="products-box">
               {data.map(order => (

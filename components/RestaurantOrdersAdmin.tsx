@@ -26,8 +26,18 @@ export interface Article {
   }
   
   
-  const dataLoader = async (): Promise<IOrder[]> => {
+  const dataLoaderPending = async (): Promise<IOrder[]> => {
+    const response = await axios.get('http://25.17.90.197:4000/api/v1/order/status/pending');
+    const hmm: IOrder[] = response as IOrder[];
+    return new Promise((res) => res(hmm));
+    };
+  const dataLoaderAccepted = async (): Promise<IOrder[]> => {
     const response = await axios.get('http://25.17.90.197:4000/api/v1/order/status/accepted');
+    const hmm: IOrder[] = response as IOrder[];
+    return new Promise((res) => res(hmm));
+    };
+  const dataLoaderDelivering = async (): Promise<IOrder[]> => {
+    const response = await axios.get('http://25.17.90.197:4000/api/v1/order/status/delivering');
     const hmm: IOrder[] = response as IOrder[];
     return new Promise((res) => res(hmm));
     };
@@ -44,14 +54,28 @@ const restaurantOrdersAdmin : NextPage = () => {
         });
   
         socket.on("restaurants", () => {
-          dataLoader().then((res) => {
+          dataLoaderPending().then((res) => {
             setData(res.data);
+            dataLoaderAccepted().then((res2) => {
+              dataLoaderDelivering().then(res3 => {
+                let datas = res.data.concat(res2.data);
+                datas.concat(res3.data);
+                setData(datas);
+              })
+            })
           });
         })
   
         const timer = setTimeout(() => {
-            dataLoader().then((res) => {
+          dataLoaderPending().then((res) => {
             setData(res.data);
+            dataLoaderAccepted().then((res2) => {
+              dataLoaderDelivering().then(res3 => {
+                let datas = res.data.concat(res2.data);
+                datas.concat(res3.data);
+                setData(datas);
+              })
+            })
           });
         }, Math.random() * 1000);
         return () => clearTimeout(timer);
@@ -59,7 +83,7 @@ const restaurantOrdersAdmin : NextPage = () => {
         
         const acceptOrder = async (id: string) => {
             await axios.put('http://25.17.90.197:4000/api/v1/order/'+id, {
-              status: "preparating"
+              status: "accepted"
             }).then(() => {
               dataLoader().then((res) => {
                 setData(res.data);

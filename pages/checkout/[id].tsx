@@ -76,9 +76,9 @@ const checkout: NextPage = () => {
     const colorStatus = (status: string) => {
       if(status === "pending") return "cart-pending"
       if(status === "accepted") return  "cart-accepted"
-      if(status === "delivered") return  "cart-delivered"
-      if(status === "cancelled") return  "cart-cancelled"
-      if(status === "preparating") return "cart-preparating"
+      if(status === "delivering") return  "cart-delivering"
+      if(status === "rejected") return  "cart-rejected"
+      if(status === "delivered") return "cart-delivered"
     }
 
     const sendOrder = async () => {
@@ -96,11 +96,21 @@ const checkout: NextPage = () => {
       });
     }
 
+    const endOrder = async (id: string) => {
+        await axios.put('http://25.17.90.197:4000/api/v1/order/'+id, {
+          status: "delivered"
+        }).then(() => {
+          dataLoader().then((res) => {
+            setData(res.data);
+          });
+        }).catch(err => {
+          console.log(err)
+        })
+    }
+
     function emptyCart(){
       cart.length = 0;
       dispatch(deleteArticles(cart));
-      console.log(cart);
-      console.log(getCart.articles);
     }
 
 
@@ -138,6 +148,7 @@ const checkout: NextPage = () => {
                 ))}
                 </ul>
               </div>
+              {order.status === "delivering" ? <button className="navbar-sign_up button-cart" onClick={() => {endOrder(order._id)}}> Livré </button> : ""}
             </Card>
           ))}
         </div>
