@@ -16,7 +16,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getUserState, setRefreshToken, setToken, disconnect } from '@src/redux/token.Slicers';
 import {useRouter} from 'next/router';
-import Header from "@components/header";
+import Header from "@components/Header";
 
 function Copyright(props: any) {
   return (

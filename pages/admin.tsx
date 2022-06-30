@@ -7,6 +7,8 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Header from "@components/Header"
+import AdminSession from "@components/AdminSession";
+import AdminProfil from "@components/AdminProfil";
 
 interface Session {
   id: number;
@@ -37,47 +39,21 @@ export const dataLoader = async (): Promise<Session[]> => {
 };
 
 const Admin: NextPage = () => {
-
-  const [data, setData] = useState<Session[]>([]);
-
-  useEffect(() => {
-      const timer = setTimeout(() => {
-          dataLoader().then((res) => {
-          setData(res);
-        });
-      }, Math.random() * 1000);
-      return () => clearTimeout(timer);
-      }, []);
-
+  const [category, setCategory] = useState<String>("Profils");
 
   return (
     <div>
       <Header></Header>
       <div className="main-right-side">
-      <h1> Interface d'administration (ACP) </h1>
-      <button className="navbar-sign_up"> Profils </button>
-      <button className="navbar-sign_up"> Connection logs </button>
+        <h1> Interface d'administration (ACP) </h1>
+        <button className="navbar-sign_up" onClick={() => setCategory("Profils")}> Profils </button>
+        <button className="navbar-sign_up" onClick={() => setCategory("Sessions")}> Connection logs </button>
       </div>
-      <div className="admin-container">
-        {data.map(session => (
-        <Card key={session.id} className="admin-card">
-          <CardHeader
-          avatar={<Avatar> {session.email[0]} </Avatar>}
-          title={"Identifiant : " + session.userId}
-          subheader={
-            <p>{session.email}</p>
-          }
-          action={session.isAuth ? <div className="admin-connected" /> : <div className="admin-disconnected"/>}
-          />
-          <CardContent className="admin-profils">
-            <Typography variant="body2" color="textSecondary" component="p">
-              Role : {session.role}
-            </Typography>
-            <Typography> {session.updatedAt.toUTCString()}</Typography>
-          </CardContent>
-        </Card>
-        ))}
-      </div>
+      {category === "Profils" ? (
+        <AdminProfil />
+      ) : (
+        <AdminSession />
+      )}
     </div>
   )
 }
