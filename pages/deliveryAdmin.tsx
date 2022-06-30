@@ -53,8 +53,6 @@ const DeliveryAdmin: NextPage = () => {
 
       socket.on("delivery", (order) => {
         dataLoader().then((res) => {
-          console.log(res.data);
-          console.log('COUCOU')
           setData(res.data);
         });
       })
@@ -71,8 +69,10 @@ const DeliveryAdmin: NextPage = () => {
     const acceptDelivery = async (id: string) => {
       await axios.put('http://25.17.90.197:4000/api/v1/order/'+id, {
         status: "delivering"
-      }).then((res) => {
-          console.log(res);
+      }).then(() => {
+        dataLoader().then((res) => {
+          setData(res.data);
+        });
       }).catch(err => {
         console.log(err);
       })
