@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getUserState } from '@src/redux/token.Slicers';
 import Popover from "@mui/material/Popover";
-
+import Link from 'next/link';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import React from 'react';
@@ -34,7 +34,20 @@ interface IRestaurant {
   deliveryTime?: number;
 }
 
+
 const restaurant: NextPage = () => {
+
+  function parseJwt (token: string) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+};
+
+
 
   const router = useRouter();
   const id = router.query.id;
@@ -45,7 +58,7 @@ const restaurant: NextPage = () => {
   };
   const [data, setData] = useState<IRestaurant[]>([]);
   const produits = data[0]?.articles;
-  const getUser = useSelector(getUserState);
+  const userDataId = parseJwt(useSelector(getUserState).token)._id;
   
   let delivery_fee = 0;
 
@@ -59,9 +72,6 @@ const restaurant: NextPage = () => {
       setCart(getCart.articles);
       return () => clearTimeout(timer);
       }, []);
-
-
-  console.log(data[0]?.articles);
 
   //---------------------CART-----------------------------------
   var [cart,setCart] = useState<IArticle[]>([]);
@@ -160,7 +170,7 @@ const restaurant: NextPage = () => {
               )}
             </div>
           <button className="navbar-sign_up" onClick={() => emptyCart()}>Vider le panier</button>
-          <button className="navbar-sign_up">Payer</button>
+          <Link href={"/checkout/" + userDataId}><button className="navbar-sign_up">Payer</button></Link>
           </Typography>
         </Popover>
         <h1>Catégorie 1</h1>

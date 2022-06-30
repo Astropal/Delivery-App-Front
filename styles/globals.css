@@ -795,3 +795,131 @@ input[type="number"]::-webkit-inner-spin-button {
 .MenuSlide{
   color:rgb(255, 255, 255);
 }
+
+.loader.--7::before,
+.loader.--7::after {
+	width: var(--size-square);
+	height: var(--size-square);
+	background-color: var(--color);
+}
+
+.loader.--7::before {
+	top: calc(50% - var(--size-square));
+	left: calc(50% - var(--size-square));
+	animation: loader-6 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+}
+
+.loader.--7::after {
+	top: 50%;
+	left: 50%;
+	animation: loader-7 2.4s cubic-bezier(0, 0, 0.24, 1.21) infinite;
+}
+
+@keyframes loader-7 {
+	0%, 100% {
+		transform: none;
+	}
+	
+	25% {
+		transform: translateX(-100%);
+	}
+	
+	50% {
+		transform: translateX(-100%) translateY(-100%);
+	}
+	
+	75% {
+		transform: translateY(-100%);
+	}
+}
+
+.checkout-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.checkout-card1 {
+  width: 30%;
+  height: auto;
+}
+
+.checkout-card2 {
+  width: 60%;
+  height: auto;
+}
+
+.cart-card {
+  width: 100%;
+  height: 100px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: right;
+  padding: 10px;
+}
+
+.cart-card img {
+  background-color: gray;
+  max-height: 90px;
+}
+
+.cart-card-text {
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  color: #000000;
+}
+
+.button-cart {
+  margin-top: 10px;
+}
+
+.cart-pending {
+  background-color: gray;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.cart-accepted {
+  background-color: orange;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.cart-delivering {
+  background-color: lightgreen;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.cart-delivered {
+  background-color: green;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.cart-rejected {
+  background-color: red;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.checkout-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-card-2 {
+  padding: 10px;
+  margin-top: 10px;
+}

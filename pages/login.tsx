@@ -66,7 +66,7 @@ export default function SignIn() {
           dispatch(setToken(res.data.token));
           console.log(parseJwt(token));
           dispatch(setRefreshToken(res.data.refreshToken));
-          //router.push('http://localhost:3000');   
+          router.push("/");   
         })
         ;
     } catch (err) {
