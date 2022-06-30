@@ -3,16 +3,17 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import { useRouter } from "next/router";
 import Layout from "@components/Layout";
-import Category from "@components/Category";
-import Products from '@components/Products';
-import Thumbnail from "@components/Thumbnail";
-import Food from "@svgs/Food.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faHeart, faTicketSimple, faCirclePlus} from "@fortawesome/free-solid-svg-icons";
+import {faHeart, faTicketSimple, faCirclePlus, faCartShopping} from "@fortawesome/free-solid-svg-icons";
 import { getArticleState, setArticles, deleteArticles, removeFromCart } from '@src/redux/article.Slicers';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { getUserState } from '@src/redux/token.Slicers';
+import Popover from "@mui/material/Popover";
+
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import React from 'react';
 
 interface IArticle{
   _id: string;
@@ -62,7 +63,7 @@ const restaurant: NextPage = () => {
 
   console.log(data[0]?.articles);
 
-  //------------------------------------------------------------
+  //---------------------CART-----------------------------------
   var [cart,setCart] = useState<IArticle[]>([]);
   const dispatch = useDispatch();
   const getCart = useSelector(getArticleState);
@@ -88,6 +89,21 @@ const restaurant: NextPage = () => {
     console.log(cart);
     console.log(getCart.articles);
   }
+
+  //------------------POPOVER-----------------------------------
+
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const idpop = open ? 'simple-popover' : undefined;
 
   return (
     <Layout>
@@ -121,38 +137,51 @@ const restaurant: NextPage = () => {
        </div>
        </div>
        <div className="main-right-side">
+        <button aria-describedby={idpop} onClick={handleClick} className="navbar-sign_up" style={{right: "0"}}><FontAwesomeIcon icon={faCartShopping}/> Panier • {cart.length}</button>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+        >
+          <Typography sx={{ p: 2 }}>Votre panier :
 
-          <h1>Catégorie 1</h1>
-          <div className="products-section">
-              <div className="products-box">
-                  {produits?.map((datum) => (
-                    <li className="products-li" onClick={() => addArticle(datum)}>
-                    <div className="products-pos">
-                          <a><FontAwesomeIcon className="product-fav" style={{color: "black", height: "30px"}} icon={faCirclePlus}/></a>
-                          <a className="products-a">
-                            <img className="restaurant-img" src={"http://25.17.90.197:4000/api/v1/cdn/" + datum.picture}></img>
-                            <div className="products-info">
-                                <h3 className="product-title">{datum.name}</h3>
-                                <span className="product-subtitle">{datum.price + "€"}</span>
-                            </div>
-                          </a>
-                    </div>
-                  </li>
-                ))}
-              </div>
-          </div>
           <div>
-            {cart && cart.map(cart =>
-                        <tr key={cart._id}>
-                            <td>{cart.description}</td>
-                            <td>{cart.name}</td>
-                            <td>{cart.picture}</td>
-                            <td>{cart.price}</td>
-                        </tr>
-            )}
-            <button onClick={() => emptyCart()}>Vider le panier</button>
-          </div>
-
+              {cart && cart.map(cart =>
+                          <tr key={cart._id}>
+                              <td className="cart-text">x1 </td>
+                              <td><img className="cart-img" src={"http://25.17.90.197:4000/api/v1/cdn/" + cart.picture}></img></td>
+                              <td className="cart-text">{cart.price}€</td>
+                          </tr>
+              )}
+            </div>
+          <button className="navbar-sign_up" onClick={() => emptyCart()}>Vider le panier</button>
+          <button className="navbar-sign_up">Payer</button>
+          </Typography>
+        </Popover>
+        <h1>Catégorie 1</h1>
+        <div className="products-section">
+            <div className="products-box">
+                {produits?.map((datum) => (
+                  <li className="products-li" onClick={() => addArticle(datum)}>
+                  <div className="products-pos">
+                        <a><FontAwesomeIcon className="product-fav" style={{color: "black", height: "30px"}} icon={faCirclePlus}/></a>
+                        <a className="products-a">
+                          <img className="restaurant-img" src={"http://25.17.90.197:4000/api/v1/cdn/" + datum.picture}></img>
+                          <div className="products-info">
+                              <h3 className="product-title">{datum.name}</h3>
+                              <span className="product-subtitle">{datum.price + "€"}</span>
+                          </div>
+                        </a>
+                  </div>
+                </li>
+              ))}
+            </div>
+        </div>
        </div>
 
        </div>
