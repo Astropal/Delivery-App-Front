@@ -12,6 +12,8 @@ import { Restaurant } from '@mui/icons-material';
 import ArticleModal from '@components/ArticleModal';
 import Header from "@components/Header"
 import {io}  from "socket.io-client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCheck, faXmark} from "@fortawesome/free-solid-svg-icons";
 
 export interface Article {
   _id: string,
@@ -88,15 +90,29 @@ const DeliveryAdmin: NextPage = () => {
     <>
       <Header></Header>
       <div>
-        <h1> Delivery Admin </h1>
-        {data.map(order => (
-            <div key={order._id}> 
-              <h4> Status {order.status} </h4>
-              <p>  CustomerID : {order.customerId} </p>
-              <button onClick={() => refuseDelivery(order._id)}> x </button>
-              <button onClick={() => acceptDelivery(order._id)}> v </button>
+        <div className="main-right-side">
+          <h1> Restaurants Commandes </h1>
+          <div className="products-section">
+            <div className="products-box">
+              {data.map(order => (
+
+                  <Card key={order._id} className="admin-card" style={{border: "0", width: "40%", marginRight: "15px"}}>
+                  <CardHeader
+                  title={"Status : " + order.status}
+                  subheader={
+                    <>
+                    <p>Référence de commande : {order._id}</p>
+                    <p>CustomerID : {order.customerId}</p>
+                    </>
+                  }
+                  />
+                  <button className="admin-decline" onClick={() => refuseDelivery(order._id)}><FontAwesomeIcon icon={faXmark}/></button>
+                  <button className="admin-validate" onClick={() => acceptDelivery(order._id)}><FontAwesomeIcon icon={faCheck}/></button>
+                  </Card>
+                  ))}
             </div>
-          ))}
+          </div>
+        </div>
       </div>
     </>
   )

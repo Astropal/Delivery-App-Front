@@ -91,7 +91,7 @@ const restaurantOrdersAdmin : NextPage = () => {
                   <div className="products-box">
                     {data.map(order => (
 
-                        <Card key={order._id} className="admin-card" style={{border: "0", width: "40%"}}>
+                        <Card key={order._id} className="admin-card" style={{border: "0", width: "40%", marginRight: "15px"}}>
                         <CardHeader
                         title={"Status : " + order.status}
                         subheader={
