@@ -41,7 +41,7 @@ export const userSlice = createSlice({
       },
     disconnect: (
         state: Draft<typeof initialState>,
-        action: PayloadAction<typeof initialState.refreshToken>
+        action: PayloadAction<typeof initialState.token>
       ) => {
         state.refreshToken = "";
         state.token = "";
